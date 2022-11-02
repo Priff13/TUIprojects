@@ -1,5 +1,5 @@
 # TUI (Text-User-Interface) projects
-This is a project of mine in c++. I am writing text-based applications in it via terminal using my own C++ header file as sort of like a library.
+This is a project of mine in C++. I am writing text-based applications in it via terminal using my own C++ header file as sort of like a library.
 
 ## How to use
 
