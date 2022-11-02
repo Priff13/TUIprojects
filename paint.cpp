@@ -88,7 +88,7 @@ void drawVars() {
 	setChars(60,5,getBrightness(currentBrightness));
 	clearColors();
 	setChars(55,4,to_string(currentBrightness));
-	setChars(50,3,getColor(currentColor));
+	setChars(50,3,getColor(currentColor) + "   "); // the spaces to prevent visual glitches
 	setCursor(0,25);
 }
 int main()
