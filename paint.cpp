@@ -127,7 +127,7 @@ int main()
 	for (int i = 0; i < 20; i++) { //makes everything pure white
 		for (int j = 0; j < 40; j++) {
 			setForegroundColor("White");
-			cols[i][j] = 5;
+			cols[i][j] = 7;
 			brightness[i][j] = 0;
 			setChars(j+2,i+3,"█");
 		}
