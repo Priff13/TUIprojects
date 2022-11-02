@@ -3,6 +3,7 @@ This is a project of mine in c++. I am writing text-based applications in it via
 
 ## How to use
 
+**NOTICE: THE PAINT PROJECT IS NOT CURRENTLY FUNCTIONAL.**  
 Right now, none of the projects are complete, but the main header file : "consoleFunctions.hpp" is available to use with credit, and documentation will be available for it sometime in the near future.
 The header file and current programs written with it require only the standard C++ libraries. However, because these projects use primarily a terminal/console, many of the features will not work on the Windows OS because of a lack of ANSI support.
 
