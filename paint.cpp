@@ -16,6 +16,15 @@ int brightness[20][40];
 int cols[20][40];
 int currentBrightness = 0;
 int currentColor = 1;
+int countChars(string charin, string inp) {
+	int out = 0;
+	for (int i = 0; i < inp.length(); i++) {
+		if (inp[i] == charin[0]) {
+			out++;
+		}
+	}
+	return(out);
+}
 int bound(int min, int x, int max) {
 	if (x < min) {x = min;}
 	if (x > max) {x = max;}
@@ -105,7 +114,7 @@ int main()
 	setForegroundColor("White");
 	setChars(64,1," Commands:");
 	setChars(64,2,"  To move cursor:");
-	setChars(64,3,"   use the arrow keys.");
+	setChars(64,3,"   arrow keys or WASD");
 	setChars(64,4,"  To set color:");
 	setChars(64,5,"   sc {a}");
 	setChars(64,6,"    {a} = Black, Red,");
@@ -116,9 +125,9 @@ int main()
 	setChars(64,11,"   sb {a}");
 	setChars(64,12,"    {a} = 0-3");
 	setChars(64,13,"  To paint a square:");
-	setChars(64,14,"   paint");
+	setChars(64,14,"   p");
 	setChars(64,15,"  To paint everything:");
-	setChars(64,16,"   fill");
+	setChars(64,16,"   f");
 	setChars(43,3,"Color: ");
 	setChars(43,4,"Brightness: ");
 	setChars(43,5,"Current setting: ");
@@ -149,6 +158,7 @@ int main()
 			if (cursorY > 0) {
 				cursorY--;
 			}
+
 		}	
 		if (input == "\x1b[B") { //DOWN arrow key
 			if (cursorY < 20) {
@@ -165,6 +175,12 @@ int main()
 				cursorX++;
 			}
 		}
+		cursorY -= countChars("w",input);
+		cursorY += countChars("s",input);
+		cursorX -= countChars("a",input);
+		cursorX += countChars("d",input);
+		cursorX = bound(0,cursorX,39);
+		cursorY = bound(0,cursorY,19);
 		if (input == "paint") { //set Color and Brightness at Cursor pos. to current
 			cols[cursorY][bound(0,cursorX-1,40)] = currentColor;
 			brightness[cursorY][bound(0,cursorX-1,40)] = currentBrightness;
