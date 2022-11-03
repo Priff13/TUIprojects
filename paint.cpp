@@ -181,7 +181,7 @@ int main()
 		cursorX += countChars("d",input);
 		cursorX = bound(0,cursorX,39);
 		cursorY = bound(0,cursorY,19);
-		if (input == "paint") { //set Color and Brightness at Cursor pos. to current
+		if (input == "p") { //set Color and Brightness at Cursor pos. to current
 			cols[cursorY][bound(0,cursorX-1,40)] = currentColor;
 			brightness[cursorY][bound(0,cursorX-1,40)] = currentBrightness;
 		}
@@ -194,7 +194,7 @@ int main()
 		if (input.substr(0,2) == "sc") { //sets current color
 			currentColor = getColorReverse(input.substr(3,input.length()));
 		}
-		if (input == "fill") {
+		if (input == "f") {
 			for (int i = 0; i < 20; i++) { //fills everything with current color
 				for (int j = 0; j < 40; j++) {
 					setForegroundColor(getColor(currentColor));
