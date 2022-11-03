@@ -97,7 +97,7 @@ void drawVars() {
 	setChars(60,5,getBrightness(currentBrightness));
 	clearColors();
 	setChars(55,4,to_string(currentBrightness));
-	setChars(50,3,getColor(currentColor));
+	setChars(50,3,getColor(currentColor) + "   "); // the spaces to prevent visual glitches
 	setCursor(0,25);
 }
 int main()
@@ -154,23 +154,23 @@ int main()
 		if (cursorX > 0) {
 			setChars(cursorX+1,cursorY+3,b); //draw remove X at cursor from previous cycle
 		}
-		if (input == "\x1b[A") { //UP arrow key
+		if (input == "\x1b[A" || input == "w") { //UP arrow key
 			if (cursorY > 0) {
 				cursorY--;
 			}
 
 		}	
-		if (input == "\x1b[B") { //DOWN arrow key
+		if (input == "\x1b[B" || input == "s") { //DOWN arrow key
 			if (cursorY < 20) {
 				cursorY++;
 			}
 		}
-		if (input == "\x1b[D") { //LEFT arrow key
+		if (input == "\x1b[D" || input == "a") { //LEFT arrow key
 			if (cursorX > 0) {
 				cursorX--;
 			}
 		}
-		if (input == "\x1b[C") { //RIGHT arrow key
+		if (input == "\x1b[C" || input == "d") { //RIGHT arrow key
 			if (cursorX < 40) {
 				cursorX++;
 			}
