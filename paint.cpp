@@ -105,7 +105,7 @@ int main()
 	setForegroundColor("White");
 	setChars(64,1," Commands:");
 	setChars(64,2,"  To move cursor:");
-	setChars(64,3,"   use the arrow keys.");
+	setChars(64,3,"   arrow keys or WASD");
 	setChars(64,4,"  To set color:");
 	setChars(64,5,"   sc {a}");
 	setChars(64,6,"    {a} = Black, Red,");
@@ -145,22 +145,22 @@ int main()
 		if (cursorX > 0) {
 			setChars(cursorX+1,cursorY+3,b); //draw remove X at cursor from previous cycle
 		}
-		if (input == "\x1b[A") { //UP arrow key
+		if (input == "\x1b[A" || input == "w") { //UP arrow key
 			if (cursorY > 0) {
 				cursorY--;
 			}
 		}	
-		if (input == "\x1b[B") { //DOWN arrow key
+		if (input == "\x1b[B" || input == "s") { //DOWN arrow key
 			if (cursorY < 20) {
 				cursorY++;
 			}
 		}
-		if (input == "\x1b[D") { //LEFT arrow key
+		if (input == "\x1b[D" || input == "a") { //LEFT arrow key
 			if (cursorX > 0) {
 				cursorX--;
 			}
 		}
-		if (input == "\x1b[C") { //RIGHT arrow key
+		if (input == "\x1b[C" || input == "d") { //RIGHT arrow key
 			if (cursorX < 40) {
 				cursorX++;
 			}
